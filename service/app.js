@@ -6,6 +6,7 @@ const cors=require('koa2-cors')
 const { connect,initSchema } = require('./database/index')
 const Router=require('koa-router')
 let user=require('./serviceAPI/user')
+let goods=require('./serviceAPI/goods')
 
 app.use(bodyParser())
 app.use(cors())
@@ -13,6 +14,7 @@ app.use(cors())
 // 装载所有子路由
 let router =new Router()
 router.use('/user',user.routes())
+router.use('/goods',goods.routes())
 // 加载路由中间件
 app.use(router.routes())
 app.use(router.allowedMethods())

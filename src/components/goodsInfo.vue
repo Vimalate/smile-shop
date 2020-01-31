@@ -1,5 +1,5 @@
 <template>
-  <div class="goods-info">
+  <div class="goods-info" @click="goGoods">
     <div class="goods-image">
       <img v-lazy="goodsImage" width="90%" />
     </div>
@@ -11,7 +11,7 @@
 <script>
 import { toMoney } from "../utils/fitler";
 export default {
-    props:['goodsPrice','goodsName','goodsImage'],
+    props:['goodsPrice','goodsName','goodsImage','goodsId'],
   data() {
     return {};
   },
@@ -19,7 +19,12 @@ export default {
        moneyFilter(money) {
       return toMoney(money);
     }
-  }
+  },
+  methods: {
+    goGoods() {
+      this.$router.push({name:'Goods',query:{goodsId:this.goodsId}})
+    }
+  },
 };
 </script>
 <style lang='scss' scoped>

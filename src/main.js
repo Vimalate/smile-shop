@@ -18,9 +18,10 @@ import {
   List,
   Field,
   NavBar,
-  Toast
+  Toast,
+  Tab,Tabs
 } from 'vant'
-Vue.use(Button).use(Col).use(Row).use(Swipe).use(SwipeItem).use(Lazyload).use(List).use(Field).use(NavBar).use(Toast);
+Vue.use(Button).use(Col).use(Row).use(Swipe).use(SwipeItem).use(Lazyload).use(List).use(Field).use(NavBar).use(Toast).use(Tabs).use(Tab);
 Vue.config.productionTip = false
 
 new Vue({
