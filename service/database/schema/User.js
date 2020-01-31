@@ -23,5 +23,16 @@ userSchema.pre('save',function(next){
         
     })
 })
+
+userSchema.methods={
+    comparePassword:(oldPassword,newPassword)=>{
+        return new Promise((resolve,reject)=>{
+            bcrypt.compare(oldPassword,newPassword,(err,isMatch)=>{
+                if(!err) resolve(isMatch)
+                else reject(err)
+            })
+        })
+    }
+}
 // 发布模型
 mongoose.model('User',userSchema)

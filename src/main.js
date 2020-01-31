@@ -17,9 +17,10 @@ import {
   Lazyload,
   List,
   Field,
-  NavBar
+  NavBar,
+  Toast
 } from 'vant'
-Vue.use(Button).use(Col).use(Row).use(Swipe).use(SwipeItem).use(Lazyload).use(List).use(Field).use(NavBar);
+Vue.use(Button).use(Col).use(Row).use(Swipe).use(SwipeItem).use(Lazyload).use(List).use(Field).use(NavBar).use(Toast);
 Vue.config.productionTip = false
 
 new Vue({
