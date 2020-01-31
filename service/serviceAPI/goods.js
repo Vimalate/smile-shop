@@ -98,11 +98,24 @@ router.get('/getCategoryList',async(ctx)=>{
     }
 })
 // 读取分类数据
-router.get('/getCategorySubList',async(ctx)=>{
+router.post('/getCategorySubList',async(ctx)=>{
     try{
-        // let categoryId=ctx.request.body.categoryId
+        let categoryId=ctx.request.body.categoryId
+        // let categoryId=1
         const CategorySub=mongoose.model('CategorySub')
-        let result=await CategorySub.find({}).exec()
+        let result=await CategorySub.find({MALL_CATEGORY_ID:categoryId}).exec()
+        ctx.body={code:200,message:result}
+    }catch(err){
+        ctx.body={code:500,message:err}
+    }
+})
+// 更具类别获取商品列表
+router.get('/getGoodsList',async(ctx)=>{
+    try{
+        // let categorySubId=ctx.request.body.categorySubId
+        let categorySubId='2c9f6c946016ea9b016016f79c8e0000'
+        const Goods=mongoose.model('Goods')
+        let result=await Goods.find({SUB_ID:categorySubId}).exec()
         ctx.body={code:200,message:result}
     }catch(err){
         ctx.body={code:500,message:err}
